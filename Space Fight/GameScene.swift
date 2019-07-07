@@ -10,101 +10,125 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene {
+    //player dude setup
+     let player = SKSpriteNode(imageNamed: "playerShip")
+    let bulletSound = SKAction.playSoundFileNamed("Gun+Silencer.mp3", waitForCompletion: false)
+    func random() -> CGFloat {
+        return CGFloat(Float(arc4random()) / 0xFFFFFFFF) // Part 2
+    }
     
-    var entities = [GKEntity]()
-    var graphs = [String : GKGraph]()
+    func random(min min: CGFloat, max:CGFloat) -> CGFloat {
+        return random() * (max - min) + min
+    }
+    var gameArea:CGRect
     
-    private var lastUpdateTime : TimeInterval = 0
-    private var label : SKLabelNode?
-    private var spinnyNode : SKShapeNode?
-    
-    override func sceneDidLoad() {
-
-        self.lastUpdateTime = 0
+    override init(size: CGSize){
         
-        // Get label node from scene and store it for use later
-        self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
-        if let label = self.label {
-            label.alpha = 0.0
-            label.run(SKAction.fadeIn(withDuration: 2.0))
-        }
+        let maxAspectRatio:CGFloat = 16.0 / 9.0
+        let playableWidth = size.height / maxAspectRatio
+        let margin = (size.width - playableWidth) / 2
+        gameArea = CGRect(x: margin, y: 0, width: playableWidth, height: size.height)
         
-        // Create shape node to use during mouse interaction
-        let w = (self.size.width + self.size.height) * 0.05
-        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
+        super.init(size: size)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func didMove(to view: SKView) {
+        //Background lol
+        let background = SKSpriteNode(imageNamed: "background")
+         background.size = self.size
+        background.position = CGPoint(x: self.size.width/2 , y: self.size.height/2)
+        background.zPosition = 0
+        self.addChild(background)
+        //Player dude
+       
+        player.setScale(1)
+        player.position = CGPoint(x: self.size.width/2, y: self.size.height/2 * 0.2)
+        player.zPosition = 2
+        self.addChild(player)
         
-        if let spinnyNode = self.spinnyNode {
-            spinnyNode.lineWidth = 2.5
-            
-            spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(Double.pi), duration: 1)))
-            spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
-                                              SKAction.fadeOut(withDuration: 0.5),
-                                              SKAction.removeFromParent()]))
-        }
+        
+        startNewLevel()
+        
+    
+    
     }
-    
-    
-    func touchDown(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.green
-            self.addChild(n)
-        }
+ 
+    func startNewLevel() {
+        //Enemy spawn sequence bang bang bang
+        let spawn = SKAction.run(spawnEnemy)
+        let waitToSpawn = SKAction.wait(forDuration: 1)
+        let spawnSequence = SKAction.sequence([spawn, waitToSpawn])
+        let spawnForever = SKAction.repeatForever(spawnSequence)
+        self.run(spawnForever)
     }
-    
-    func touchMoved(toPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.blue
-            self.addChild(n)
-        }
+    func fireBullet() {
+        let bullet = SKSpriteNode(imageNamed:"bullet")
+        bullet.setScale(1)
+        bullet.position = player.position
+        bullet.zPosition = 1
+        self.addChild(bullet)
+        
+        let moveBullet = SKAction.moveTo(y: self.size.height + bullet.size.height , duration: 1)
+        let deleteBullet = SKAction.removeFromParent()
+        
+        
+        let bulletSequence = SKAction.sequence([bulletSound, moveBullet, deleteBullet])
+        bullet.run(bulletSequence)
+        
     }
-    
-    func touchUp(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.red
-            self.addChild(n)
-        }
+    //Enemy dude
+    func spawnEnemy() {
+        let randomXStart = random(min: gameArea.minX, max: gameArea.maxX);
+        let randomXEnd = random(min: gameArea.minX, max: gameArea.maxX)
+        
+        let startPoint = CGPoint(x: randomXStart, y: self.size.height * 1.2)
+        let endPoint = CGPoint(x: randomXEnd, y: -self.size.height * 0.2)
+        //Setup enemy dude
+        let enemy = SKSpriteNode(imageNamed: "enemyShip")
+        enemy.setScale(1)
+        enemy.position = startPoint
+        enemy.zPosition = 2
+        self.addChild(enemy)
+        //Moving enemy skr skr
+        let moveEnemy = SKAction.move(to: endPoint, duration: 1.5)
+        let deleteEnemy = SKAction.removeFromParent()
+        let enemySequence = SKAction.sequence([moveEnemy, deleteEnemy])
+        enemy.run(enemySequence)
+        //
+        let dx = endPoint.x - startPoint.x
+        let dy = endPoint.y - startPoint.y
+        let amountToRotate = atan2(dy, dx)
+        enemy.zRotation = amountToRotate
+        
+        
     }
-    
+    //calling Fire Bullet hehe
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let label = self.label {
-            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
-        }
-        
-        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
+        fireBullet()
+        print("Bullet issued!")
+       
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
-    
-    
-    override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
-        
-        // Initialize _lastUpdateTime if it has not already been
-        if (self.lastUpdateTime == 0) {
-            self.lastUpdateTime = currentTime
+        for touch: AnyObject in touches {
+            let pointOfTouch = touch.location(in:self)
+            let previousPointOfTouch = touch.previousLocation(in:self)
+            
+            let amountDragged = pointOfTouch.x - previousPointOfTouch.x
+            player.position.x += amountDragged
+            if player.position.x > gameArea.maxX - player.size.width/2 {
+                player.position.x = gameArea.maxX - player.size.width/2
+            }
+            
+            if player.position.x < gameArea.minX + player.size.width/2 {
+                player.position.x = gameArea.minX + player.size.width/2 
+            }
+            
         }
-        
-        // Calculate time since last update
-        let dt = currentTime - self.lastUpdateTime
-        
-        // Update entities
-        for entity in self.entities {
-            entity.update(deltaTime: dt)
-        }
-        
-        self.lastUpdateTime = currentTime
     }
 }
+
