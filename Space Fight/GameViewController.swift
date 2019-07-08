@@ -9,6 +9,7 @@
 import UIKit
 import SpriteKit
 import GameplayKit
+import FirebaseUI
 
 class GameViewController: UIViewController {
 
@@ -38,6 +39,7 @@ class GameViewController: UIViewController {
                     view.showsNodeCount = true
                 
             }
+            
         }
     }
 
@@ -55,5 +57,28 @@ class GameViewController: UIViewController {
 
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+    
+    @IBAction func loginTapped(_ sender: UIButton) {
+        
+        let authUI = FUIAuth.defaultAuthUI()
+        
+        guard authUI != nil else {
+            //log the error
+            return
+        }
+        authUI?.delegate = self as! FUIAuthDelegate
+        
+        let authViewController = authUI!.authViewController()
+        
+        present(authViewController, animated: true , completion: nil)
+        
+        
+    }
+}
+
+extension GameViewController: FUIAuthDelegate {
+    func authUI(_ authUI:FUIAuth ,didSignInWith authDataResult: AuthDataResult?, error: Error?){
+        
     }
 }

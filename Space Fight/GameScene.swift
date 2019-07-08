@@ -13,6 +13,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     //player dude setup
      let player = SKSpriteNode(imageNamed: "playerShip")
     let bulletSound = SKAction.playSoundFileNamed("Gun+Silencer.mp3", waitForCompletion: false)
+    let explosionSound = SKAction.playSoundFileNamed("explosion-01.mp3", waitForCompletion: false)
     
     struct PhysicsCatagories {
         static let None : UInt32 = 0
@@ -84,6 +85,60 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         body1 = contact.bodyB
         body2 = contact.bodyA
     }
+        if body1.categoryBitMask     == PhysicsCatagories.Player && body2.categoryBitMask    == PhysicsCatagories.Enemy {
+            //If the player hit the enemy :D
+            if body1.node != nil {
+            spawnExplosion(spawnPosition: body1.node!.position)
+            }
+            
+            if body2.node != nil {
+            spawnExplosion(spawnPosition: body2.node!.position)
+            }
+            
+            
+            body1.node?.removeFromParent()
+            body2.node?.removeFromParent()
+            
+        }
+        if body1.categoryBitMask == PhysicsCatagories.Bullet && body2.categoryBitMask == PhysicsCatagories.Enemy {
+            //If the bullet has hit the enemy
+            
+            spawnExplosion(spawnPosition:body2.node!.position)
+            
+            
+            
+            if body2.node != nil {
+                if body2.node!.position.y > self.size.height{
+                    return
+                }else {
+                    spawnExplosion(spawnPosition: body2.node!.position)
+                }
+            }
+            body1.node?.removeFromParent()
+            body2.node?.removeFromParent()
+            
+            
+        }
+    }
+    //Explosion animation bombombomb
+    func spawnExplosion(spawnPosition: CGPoint){
+        let explosion = SKSpriteNode(imageNamed: "explosion")
+        explosion.position = spawnPosition
+        explosion.zPosition = 3
+        explosion.setScale(0)
+        self.addChild(explosion)
+        
+        
+        let scaleIn = SKAction.scale(to: 1, duration: 0.1)
+        let fadeOut = SKAction.fadeOut(withDuration: 0.1)
+        let delete = SKAction.removeFromParent()
+        
+        let explosionSequence = SKAction.sequence([explosionSound, scaleIn,fadeOut , delete])
+        explosion.run(explosionSequence)
+        
+        
+        
+        
     }
     func startNewLevel() {
         //Enemy spawn sequence bang bang bang

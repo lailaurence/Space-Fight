@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		024AEB3B22D3534E00E6090E /* explosion-01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 024AEB3A22D3534E00E6090E /* explosion-01.mp3 */; };
 		026F934822D228A600CFB5E6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 026F934722D228A600CFB5E6 /* GoogleService-Info.plist */; };
 		02D441FA22D1D555007AED7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D441F922D1D555007AED7F /* AppDelegate.swift */; };
 		02D441FC22D1D555007AED7F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 02D441FB22D1D555007AED7F /* GameScene.sks */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		00DBF9A15599ABA84711CC0B /* Pods_Space_FightUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Space_FightUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		024AEB3A22D3534E00E6090E /* explosion-01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "explosion-01.mp3"; sourceTree = "<group>"; };
 		026F934722D228A600CFB5E6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		02D441F622D1D555007AED7F /* Space Fight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Space Fight.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		02D441F922D1D555007AED7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				02D4420122D1D555007AED7F /* GameViewController.swift */,
 				02D4420322D1D555007AED7F /* Main.storyboard */,
 				02D4422D22D1DE94007AED7F /* Gun+Silencer.mp3 */,
+				024AEB3A22D3534E00E6090E /* explosion-01.mp3 */,
 				026F934722D228A600CFB5E6 /* GoogleService-Info.plist */,
 				02D4420622D1D557007AED7F /* Assets.xcassets */,
 				02D4420822D1D557007AED7F /* LaunchScreen.storyboard */,
@@ -167,7 +170,6 @@
 				9E98705E8A4E0605CD598B62 /* Pods-Space FightUITests.debug.xcconfig */,
 				E47BA4B77B7F31148E4FBB19 /* Pods-Space FightUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -295,6 +297,7 @@
 				02D4420722D1D557007AED7F /* Assets.xcassets in Resources */,
 				02D4420A22D1D557007AED7F /* LaunchScreen.storyboard in Resources */,
 				02D4422E22D1DE94007AED7F /* Gun+Silencer.mp3 in Resources */,
+				024AEB3B22D3534E00E6090E /* explosion-01.mp3 in Resources */,
 				02D441FE22D1D555007AED7F /* Actions.sks in Resources */,
 				026F934822D228A600CFB5E6 /* GoogleService-Info.plist in Resources */,
 			);
