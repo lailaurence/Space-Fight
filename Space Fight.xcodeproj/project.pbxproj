@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		026F934622D2246600CFB5E6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 026F934522D2246600CFB5E6 /* GoogleService-Info.plist */; };
+		026F934822D228A600CFB5E6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 026F934722D228A600CFB5E6 /* GoogleService-Info.plist */; };
 		02D441FA22D1D555007AED7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D441F922D1D555007AED7F /* AppDelegate.swift */; };
 		02D441FC22D1D555007AED7F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 02D441FB22D1D555007AED7F /* GameScene.sks */; };
 		02D441FE22D1D555007AED7F /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 02D441FD22D1D555007AED7F /* Actions.sks */; };
@@ -19,6 +19,9 @@
 		02D4421522D1D557007AED7F /* Space_FightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D4421422D1D557007AED7F /* Space_FightTests.swift */; };
 		02D4422022D1D557007AED7F /* Space_FightUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D4421F22D1D557007AED7F /* Space_FightUITests.swift */; };
 		02D4422E22D1DE94007AED7F /* Gun+Silencer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 02D4422D22D1DE94007AED7F /* Gun+Silencer.mp3 */; };
+		70966C7D9B107722AEF0E132 /* Pods_Space_Fight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4040E4734C1842B8830379F /* Pods_Space_Fight.framework */; };
+		8E121DEA8783C30BC159D09E /* Pods_Space_FightUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00DBF9A15599ABA84711CC0B /* Pods_Space_FightUITests.framework */; };
+		FAB8AFE0B76660998591E5F0 /* Pods_Space_FightTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24FE9D90D8D7456B0D55DCD0 /* Pods_Space_FightTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		026F934522D2246600CFB5E6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		00DBF9A15599ABA84711CC0B /* Pods_Space_FightUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Space_FightUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		026F934722D228A600CFB5E6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		02D441F622D1D555007AED7F /* Space Fight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Space Fight.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		02D441F922D1D555007AED7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02D441FB22D1D555007AED7F /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -57,6 +61,14 @@
 		02D4421F22D1D557007AED7F /* Space_FightUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Space_FightUITests.swift; sourceTree = "<group>"; };
 		02D4422122D1D557007AED7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02D4422D22D1DE94007AED7F /* Gun+Silencer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Gun+Silencer.mp3"; sourceTree = "<group>"; };
+		151FBB4D05C9E7FEC57E9DB4 /* Pods-Space Fight.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Space Fight.debug.xcconfig"; path = "Target Support Files/Pods-Space Fight/Pods-Space Fight.debug.xcconfig"; sourceTree = "<group>"; };
+		17F4D687C63C3DA9BCF208BC /* Pods-Space FightTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Space FightTests.release.xcconfig"; path = "Target Support Files/Pods-Space FightTests/Pods-Space FightTests.release.xcconfig"; sourceTree = "<group>"; };
+		24FE9D90D8D7456B0D55DCD0 /* Pods_Space_FightTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Space_FightTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AC94E0283DE1FDFBCA25025 /* Pods-Space FightTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Space FightTests.debug.xcconfig"; path = "Target Support Files/Pods-Space FightTests/Pods-Space FightTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9CAEE2B13381FDC64B9B3F33 /* Pods-Space Fight.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Space Fight.release.xcconfig"; path = "Target Support Files/Pods-Space Fight/Pods-Space Fight.release.xcconfig"; sourceTree = "<group>"; };
+		9E98705E8A4E0605CD598B62 /* Pods-Space FightUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Space FightUITests.debug.xcconfig"; path = "Target Support Files/Pods-Space FightUITests/Pods-Space FightUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B4040E4734C1842B8830379F /* Pods_Space_Fight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Space_Fight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E47BA4B77B7F31148E4FBB19 /* Pods-Space FightUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Space FightUITests.release.xcconfig"; path = "Target Support Files/Pods-Space FightUITests/Pods-Space FightUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70966C7D9B107722AEF0E132 /* Pods_Space_Fight.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAB8AFE0B76660998591E5F0 /* Pods_Space_FightTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E121DEA8783C30BC159D09E /* Pods_Space_FightUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +106,8 @@
 				02D4421322D1D557007AED7F /* Space FightTests */,
 				02D4421E22D1D557007AED7F /* Space FightUITests */,
 				02D441F722D1D555007AED7F /* Products */,
+				2B112BEA9587B2C447980131 /* Pods */,
+				DDE56CCD15DF94E729B7848E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,8 +130,8 @@
 				02D441FF22D1D555007AED7F /* GameScene.swift */,
 				02D4420122D1D555007AED7F /* GameViewController.swift */,
 				02D4420322D1D555007AED7F /* Main.storyboard */,
-				026F934522D2246600CFB5E6 /* GoogleService-Info.plist */,
 				02D4422D22D1DE94007AED7F /* Gun+Silencer.mp3 */,
+				026F934722D228A600CFB5E6 /* GoogleService-Info.plist */,
 				02D4420622D1D557007AED7F /* Assets.xcassets */,
 				02D4420822D1D557007AED7F /* LaunchScreen.storyboard */,
 				02D4420B22D1D557007AED7F /* Info.plist */,
@@ -140,6 +157,30 @@
 			path = "Space FightUITests";
 			sourceTree = "<group>";
 		};
+		2B112BEA9587B2C447980131 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				151FBB4D05C9E7FEC57E9DB4 /* Pods-Space Fight.debug.xcconfig */,
+				9CAEE2B13381FDC64B9B3F33 /* Pods-Space Fight.release.xcconfig */,
+				7AC94E0283DE1FDFBCA25025 /* Pods-Space FightTests.debug.xcconfig */,
+				17F4D687C63C3DA9BCF208BC /* Pods-Space FightTests.release.xcconfig */,
+				9E98705E8A4E0605CD598B62 /* Pods-Space FightUITests.debug.xcconfig */,
+				E47BA4B77B7F31148E4FBB19 /* Pods-Space FightUITests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DDE56CCD15DF94E729B7848E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B4040E4734C1842B8830379F /* Pods_Space_Fight.framework */,
+				24FE9D90D8D7456B0D55DCD0 /* Pods_Space_FightTests.framework */,
+				00DBF9A15599ABA84711CC0B /* Pods_Space_FightUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +188,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 02D4422422D1D557007AED7F /* Build configuration list for PBXNativeTarget "Space Fight" */;
 			buildPhases = (
+				6310DF856178F68680742AC2 /* [CP] Check Pods Manifest.lock */,
 				02D441F222D1D555007AED7F /* Sources */,
 				02D441F322D1D555007AED7F /* Frameworks */,
 				02D441F422D1D555007AED7F /* Resources */,
+				1F0C10D70D8D8A96E87B6C1A /* [CP] Embed Pods Frameworks */,
+				21D18063D49E7A36359FCA93 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -164,6 +208,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 02D4422722D1D557007AED7F /* Build configuration list for PBXNativeTarget "Space FightTests" */;
 			buildPhases = (
+				FD3C1F21121801FD811A8C91 /* [CP] Check Pods Manifest.lock */,
 				02D4420C22D1D557007AED7F /* Sources */,
 				02D4420D22D1D557007AED7F /* Frameworks */,
 				02D4420E22D1D557007AED7F /* Resources */,
@@ -182,6 +227,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 02D4422A22D1D557007AED7F /* Build configuration list for PBXNativeTarget "Space FightUITests" */;
 			buildPhases = (
+				F1DAE05C97CD1F5B285953FA /* [CP] Check Pods Manifest.lock */,
 				02D4421722D1D557007AED7F /* Sources */,
 				02D4421822D1D557007AED7F /* Frameworks */,
 				02D4421922D1D557007AED7F /* Resources */,
@@ -250,7 +296,7 @@
 				02D4420A22D1D557007AED7F /* LaunchScreen.storyboard in Resources */,
 				02D4422E22D1DE94007AED7F /* Gun+Silencer.mp3 in Resources */,
 				02D441FE22D1D555007AED7F /* Actions.sks in Resources */,
-				026F934622D2246600CFB5E6 /* GoogleService-Info.plist in Resources */,
+				026F934822D228A600CFB5E6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +315,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1F0C10D70D8D8A96E87B6C1A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Space Fight/Pods-Space Fight-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Space Fight/Pods-Space Fight-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Space Fight/Pods-Space Fight-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		21D18063D49E7A36359FCA93 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Space Fight/Pods-Space Fight-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Space Fight/Pods-Space Fight-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Space Fight/Pods-Space Fight-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6310DF856178F68680742AC2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Space Fight-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F1DAE05C97CD1F5B285953FA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Space FightUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD3C1F21121801FD811A8C91 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Space FightTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		02D441F222D1D555007AED7F /* Sources */ = {
@@ -450,6 +599,7 @@
 		};
 		02D4422522D1D557007AED7F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 151FBB4D05C9E7FEC57E9DB4 /* Pods-Space Fight.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -468,6 +618,7 @@
 		};
 		02D4422622D1D557007AED7F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CAEE2B13381FDC64B9B3F33 /* Pods-Space Fight.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -486,6 +637,7 @@
 		};
 		02D4422822D1D557007AED7F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7AC94E0283DE1FDFBCA25025 /* Pods-Space FightTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -507,6 +659,7 @@
 		};
 		02D4422922D1D557007AED7F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17F4D687C63C3DA9BCF208BC /* Pods-Space FightTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -528,6 +681,7 @@
 		};
 		02D4422B22D1D557007AED7F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E98705E8A4E0605CD598B62 /* Pods-Space FightUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -548,6 +702,7 @@
 		};
 		02D4422C22D1D557007AED7F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E47BA4B77B7F31148E4FBB19 /* Pods-Space FightUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
