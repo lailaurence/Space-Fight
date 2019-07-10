@@ -11,6 +11,7 @@
 		024AEB3B22D3534E00E6090E /* explosion-01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 024AEB3A22D3534E00E6090E /* explosion-01.mp3 */; };
 		026F934822D228A600CFB5E6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 026F934722D228A600CFB5E6 /* GoogleService-Info.plist */; };
 		029DC08422D60DDD00C3C693 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029DC08322D60DDD00C3C693 /* GameOverScene.swift */; };
+		029DC08622D6332B00C3C693 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029DC08522D6332B00C3C693 /* ViewController.swift */; };
 		02D441FA22D1D555007AED7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D441F922D1D555007AED7F /* AppDelegate.swift */; };
 		02D441FC22D1D555007AED7F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 02D441FB22D1D555007AED7F /* GameScene.sks */; };
 		02D441FE22D1D555007AED7F /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 02D441FD22D1D555007AED7F /* Actions.sks */; };
@@ -50,6 +51,7 @@
 		024AEB3A22D3534E00E6090E /* explosion-01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "explosion-01.mp3"; sourceTree = "<group>"; };
 		026F934722D228A600CFB5E6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		029DC08322D60DDD00C3C693 /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		029DC08522D6332B00C3C693 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		02D441F622D1D555007AED7F /* Space Fight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Space Fight.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		02D441F922D1D555007AED7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02D441FB22D1D555007AED7F /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				02D441FF22D1D555007AED7F /* GameScene.swift */,
 				029DC08322D60DDD00C3C693 /* GameOverScene.swift */,
 				02D4420122D1D555007AED7F /* GameViewController.swift */,
+				029DC08522D6332B00C3C693 /* ViewController.swift */,
 				02D4420322D1D555007AED7F /* Main.storyboard */,
 				02D4422D22D1DE94007AED7F /* Gun+Silencer.mp3 */,
 				024AEB3A22D3534E00E6090E /* explosion-01.mp3 */,
@@ -354,16 +357,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Space Fight/Pods-Space Fight-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-				"$(SRCROOT)/newInputFile",
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Space Fight/Pods-Space Fight-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Space Fight/Pods-Space Fight-resources.sh\"\n\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Space Fight/Pods-Space Fight-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		21D18063D49E7A36359FCA93 /* [CP] Copy Pods Resources */ = {
@@ -456,6 +456,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				029DC08622D6332B00C3C693 /* ViewController.swift in Sources */,
 				02D4420022D1D555007AED7F /* GameScene.swift in Sources */,
 				02D4420222D1D555007AED7F /* GameViewController.swift in Sources */,
 				029DC08422D60DDD00C3C693 /* GameOverScene.swift in Sources */,
