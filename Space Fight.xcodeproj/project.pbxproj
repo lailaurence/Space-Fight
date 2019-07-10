@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0227133822D5E0C300450DFC /* CourierNewBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0227133722D5E0C300450DFC /* CourierNewBold.ttf */; };
 		024AEB3B22D3534E00E6090E /* explosion-01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 024AEB3A22D3534E00E6090E /* explosion-01.mp3 */; };
 		026F934822D228A600CFB5E6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 026F934722D228A600CFB5E6 /* GoogleService-Info.plist */; };
+		029DC08422D60DDD00C3C693 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029DC08322D60DDD00C3C693 /* GameOverScene.swift */; };
 		02D441FA22D1D555007AED7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D441F922D1D555007AED7F /* AppDelegate.swift */; };
 		02D441FC22D1D555007AED7F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 02D441FB22D1D555007AED7F /* GameScene.sks */; };
 		02D441FE22D1D555007AED7F /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 02D441FD22D1D555007AED7F /* Actions.sks */; };
@@ -44,8 +46,10 @@
 
 /* Begin PBXFileReference section */
 		00DBF9A15599ABA84711CC0B /* Pods_Space_FightUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Space_FightUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0227133722D5E0C300450DFC /* CourierNewBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CourierNewBold.ttf; sourceTree = "<group>"; };
 		024AEB3A22D3534E00E6090E /* explosion-01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "explosion-01.mp3"; sourceTree = "<group>"; };
 		026F934722D228A600CFB5E6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		029DC08322D60DDD00C3C693 /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		02D441F622D1D555007AED7F /* Space Fight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Space Fight.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		02D441F922D1D555007AED7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02D441FB22D1D555007AED7F /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -130,12 +134,14 @@
 				02D441FB22D1D555007AED7F /* GameScene.sks */,
 				02D441FD22D1D555007AED7F /* Actions.sks */,
 				02D441FF22D1D555007AED7F /* GameScene.swift */,
+				029DC08322D60DDD00C3C693 /* GameOverScene.swift */,
 				02D4420122D1D555007AED7F /* GameViewController.swift */,
 				02D4420322D1D555007AED7F /* Main.storyboard */,
 				02D4422D22D1DE94007AED7F /* Gun+Silencer.mp3 */,
 				024AEB3A22D3534E00E6090E /* explosion-01.mp3 */,
 				026F934722D228A600CFB5E6 /* GoogleService-Info.plist */,
 				02D4420622D1D557007AED7F /* Assets.xcassets */,
+				0227133722D5E0C300450DFC /* CourierNewBold.ttf */,
 				02D4420822D1D557007AED7F /* LaunchScreen.storyboard */,
 				02D4420B22D1D557007AED7F /* Info.plist */,
 			);
@@ -196,6 +202,7 @@
 				02D441F422D1D555007AED7F /* Resources */,
 				1F0C10D70D8D8A96E87B6C1A /* [CP] Embed Pods Frameworks */,
 				21D18063D49E7A36359FCA93 /* [CP] Copy Pods Resources */,
+				0227133422D3883800450DFC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -295,6 +302,7 @@
 				02D4420522D1D555007AED7F /* Main.storyboard in Resources */,
 				02D441FC22D1D555007AED7F /* GameScene.sks in Resources */,
 				02D4420722D1D557007AED7F /* Assets.xcassets in Resources */,
+				0227133822D5E0C300450DFC /* CourierNewBold.ttf in Resources */,
 				02D4420A22D1D557007AED7F /* LaunchScreen.storyboard in Resources */,
 				02D4422E22D1DE94007AED7F /* Gun+Silencer.mp3 in Resources */,
 				024AEB3B22D3534E00E6090E /* explosion-01.mp3 in Resources */,
@@ -320,6 +328,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0227133422D3883800450DFC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(Desktop/Space_Fight/Space Fight/Info.plist)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
+		};
 		1F0C10D70D8D8A96E87B6C1A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -328,13 +354,16 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Space Fight/Pods-Space Fight-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+				"$(SRCROOT)/newInputFile",
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Space Fight/Pods-Space Fight-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Space Fight/Pods-Space Fight-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Space Fight/Pods-Space Fight-resources.sh\"\n\n";
 			showEnvVarsInLog = 0;
 		};
 		21D18063D49E7A36359FCA93 /* [CP] Copy Pods Resources */ = {
@@ -429,6 +458,7 @@
 			files = (
 				02D4420022D1D555007AED7F /* GameScene.swift in Sources */,
 				02D4420222D1D555007AED7F /* GameViewController.swift in Sources */,
+				029DC08422D60DDD00C3C693 /* GameOverScene.swift in Sources */,
 				02D441FA22D1D555007AED7F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -606,6 +636,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 88WKHKVDNQ;
 				INFOPLIST_FILE = "Space Fight/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

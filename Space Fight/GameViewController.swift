@@ -10,11 +10,22 @@ import UIKit
 import SpriteKit
 import GameplayKit
 import FirebaseUI
+import FirebaseAnalytics
+
 
 class GameViewController: UIViewController {
+    
+  //  @objc func testCrashReporting() {
+      //  assert(false)
+   // }
+    
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
+       // self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(testCrashReporting))
+        
+       // Fabric.sharedSDK().debug = true
         
         // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
         // including entities and graphs.
@@ -67,7 +78,7 @@ class GameViewController: UIViewController {
             //log the error
             return
         }
-        authUI?.delegate = self as! FUIAuthDelegate
+        authUI?.delegate = self as FUIAuthDelegate
         
         let authViewController = authUI!.authViewController()
         
@@ -79,6 +90,14 @@ class GameViewController: UIViewController {
 
 extension GameViewController: FUIAuthDelegate {
     func authUI(_ authUI:FUIAuth ,didSignInWith authDataResult: AuthDataResult?, error: Error?){
+        //check is there's any error haha
+        if error != nil {
+            return
+        }
         
+       // authDataResult?.user.uid
+        
+        performSegue(withIdentifier: "goHome", sender: self)
     }
 }
+

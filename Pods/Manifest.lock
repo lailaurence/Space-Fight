@@ -1,4 +1,7 @@
 PODS:
+  - Crashlytics (3.13.2):
+    - Fabric (~> 1.10.2)
+  - Fabric (1.10.2)
   - FBSDKCoreKit (5.2.1):
     - FBSDKCoreKit/Basics (= 5.2.1)
     - FBSDKCoreKit/Core (= 5.2.1)
@@ -95,6 +98,8 @@ PODS:
   - nanopb/encode (0.3.901)
 
 DEPENDENCIES:
+  - Crashlytics (~> 3.13.2)
+  - Fabric (~> 1.10.2)
   - Firebase/Analytics
   - Firebase/Core
   - FirebaseUI/Auth
@@ -104,6 +109,8 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Crashlytics
+    - Fabric
     - FBSDKCoreKit
     - FBSDKLoginKit
     - Firebase
@@ -121,6 +128,8 @@ SPEC REPOS:
     - nanopb
 
 SPEC CHECKSUMS:
+  Crashlytics: 611738c7847f8291a1a51084e35987b86ba6b3ee
+  Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
   FBSDKCoreKit: e1ab8d86f5eea2d7aa6ab12acca3e1d2dcb11983
   FBSDKLoginKit: 6e20e44775ddf4b159a8ca676834325e13d12221
   Firebase: 8432d732974498afd5987e9001a05f90f1a3d625
@@ -137,6 +146,6 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
 
-PODFILE CHECKSUM: e791cbd35e765184f8b62b6c6ee9e6874380bd07
+PODFILE CHECKSUM: 403a9368537feaab8b511ab32baae2a1770b0398
 
 COCOAPODS: 1.7.3
