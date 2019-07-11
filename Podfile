@@ -16,6 +16,8 @@ target 'Space Fight' do
   pod 'Fabric', '~> 1.10.2'
   pod 'Crashlytics', '~> 3.13.2'
   pod 'Firebase/Performance'
+  pod 'Firebase/InAppMessagingDisplay'
+  pod 'Firebase'
 
   target 'Space FightTests' do
     inherit! :search_paths

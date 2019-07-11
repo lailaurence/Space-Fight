@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		022467ED22D6EC1A0097C683 /* DuringGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022467EC22D6EC1A0097C683 /* DuringGameScene.swift */; };
 		0227133822D5E0C300450DFC /* CourierNewBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0227133722D5E0C300450DFC /* CourierNewBold.ttf */; };
 		024AEB3B22D3534E00E6090E /* explosion-01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 024AEB3A22D3534E00E6090E /* explosion-01.mp3 */; };
 		026F934822D228A600CFB5E6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 026F934722D228A600CFB5E6 /* GoogleService-Info.plist */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		00DBF9A15599ABA84711CC0B /* Pods_Space_FightUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Space_FightUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		022467EC22D6EC1A0097C683 /* DuringGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuringGameScene.swift; sourceTree = "<group>"; };
 		0227133722D5E0C300450DFC /* CourierNewBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CourierNewBold.ttf; sourceTree = "<group>"; };
 		024AEB3A22D3534E00E6090E /* explosion-01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "explosion-01.mp3"; sourceTree = "<group>"; };
 		026F934722D228A600CFB5E6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				02D441FB22D1D555007AED7F /* GameScene.sks */,
 				02D441FD22D1D555007AED7F /* Actions.sks */,
 				02D441FF22D1D555007AED7F /* GameScene.swift */,
+				022467EC22D6EC1A0097C683 /* DuringGameScene.swift */,
 				029DC08322D60DDD00C3C693 /* GameOverScene.swift */,
 				02D4420122D1D555007AED7F /* GameViewController.swift */,
 				029DC08522D6332B00C3C693 /* ViewController.swift */,
@@ -461,6 +464,7 @@
 				02D4420222D1D555007AED7F /* GameViewController.swift in Sources */,
 				029DC08422D60DDD00C3C693 /* GameOverScene.swift in Sources */,
 				02D441FA22D1D555007AED7F /* AppDelegate.swift in Sources */,
+				022467ED22D6EC1A0097C683 /* DuringGameScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

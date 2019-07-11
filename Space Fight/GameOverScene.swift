@@ -86,7 +86,7 @@ class GameOverScene:SKScene {
     }
     
     func changeScene(){
-        let sceneToMoveTo = GameScene(size: self.size)
+        let sceneToMoveTo = DuringGameScene(size: self.size)
         sceneToMoveTo.scaleMode = self.scaleMode
         let myTransition = SKTransition.fade(withDuration: 0.5)
         self.view!.presentScene(sceneToMoveTo, transition: myTransition)
