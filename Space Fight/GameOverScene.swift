@@ -64,7 +64,7 @@ class GameOverScene:SKScene {
         self.addChild(restartLabel)
         print("Displayed restarted label")
         
-        
+        /*
         let backLabel = SKLabelNode(fontNamed: "Courier New Bold")
         backLabel.text = "Back to Main Page"
         backLabel.fontSize = 50
@@ -73,7 +73,7 @@ class GameOverScene:SKScene {
         backLabel.position = CGPoint(x: 600 , y: 1750)
         self.addChild(backLabel)
         print("Displayed Back Label")
-        
+        */
         
         
     
@@ -99,11 +99,10 @@ class GameOverScene:SKScene {
     }
     
     func changeScenetoGameScene(){
-        let sceneToMoveTo = DuringGameScene(size: self.size)
+        let sceneToMoveTo = GameScene(size: self.size)
         sceneToMoveTo.scaleMode = self.scaleMode
         let myTransition = SKTransition.fade(withDuration: 0.5)
         self.view!.presentScene(sceneToMoveTo, transition: myTransition)
         print ("Scene changed to Game Scene")
     }
-    
 }

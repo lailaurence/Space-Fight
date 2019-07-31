@@ -14,9 +14,10 @@ import FirebaseCore
 
 
 class ViewController: UIViewController {
+
+  
     
-     @IBOutlet weak var signInSelector: UISegmentedControl!
-    
+    @IBOutlet weak var signInSelector: UISegmentedControl!
     
     @IBOutlet weak var signInLabel: UILabel!
     
@@ -29,14 +30,17 @@ class ViewController: UIViewController {
     
     var isSignIn:Bool = true
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
     }
     
+   
     
-  
+    
     @IBAction func signInSelectorChanged(_ sender: UISegmentedControl) {
         //Flip the bool
         isSignIn = !isSignIn
@@ -53,13 +57,19 @@ class ViewController: UIViewController {
     }
     }
     @IBAction func signInSelectorTapped(_ sender: UIButton) {
-        
+        var title = ""
+        var message = ""
         if let email = emailTextField.text, let pass = passwordTextField.text {
             if isSignIn {
                 Auth.auth().signIn(withEmail: email, password: pass) { (user, error) in
-                    if let u = user {
+                     if let u = user {
                        self.performSegue(withIdentifier: "goToHome", sender: self)
                 }else {
+                        title = " Sign In Issue"
+                        message = "Sign in due to error "
+                        self.showAlert(title, message)
+                        
+                        
                 
                 }
                 }
@@ -70,6 +80,10 @@ class ViewController: UIViewController {
                         self.performSegue(withIdentifier: "goToHome", sender: self)
 
                     }else {
+                        title = " Register Issue"
+                        message = "Can't register due to error "
+                        self.showAlert(title, message)
+                        
                         
         }
       
@@ -77,6 +91,28 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        //dismiss keyboard 8978
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+    }
+    
+    
+    
+    //notification
+    func showAlert(_ title:String , _ message:String ) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(alertAction)
+        present(alert, animated: true , completion: nil)
+        
+    }
+
+    
+    
 }
 
     /*

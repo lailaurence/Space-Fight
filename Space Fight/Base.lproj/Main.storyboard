@@ -28,7 +28,6 @@
                                             <segment title="Register"/>
                                         </segments>
                                         <connections>
-                                            <action selector="signInSelector:" destination="1yE-jP-svw" eventType="valueChanged" id="ZtT-wQ-R1Q"/>
                                             <action selector="signInSelectorChanged:" destination="1yE-jP-svw" eventType="valueChanged" id="uz8-as-Kle"/>
                                         </connections>
                                     </segmentedControl>
@@ -101,7 +100,7 @@
                         <outlet property="passwordTextField" destination="maP-fu-YMh" id="waZ-QB-Fzx"/>
                         <outlet property="signInButton" destination="pea-qQ-64h" id="d6X-rL-C5x"/>
                         <outlet property="signInLabel" destination="IrJ-vh-gXf" id="IJI-0e-53P"/>
-                        <outlet property="signInSelector" destination="R4k-BL-30P" id="fNV-HF-oox"/>
+                        <outlet property="signInSelector" destination="R4k-BL-30P" id="HAW-QC-ffc"/>
                         <segue destination="BV1-FR-VrT" kind="show" identifier="goToHome" id="3Sy-KE-Fkq"/>
                     </connections>
                 </viewController>
