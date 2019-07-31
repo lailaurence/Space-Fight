@@ -69,15 +69,27 @@ class GameViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
-    /*
+    
     @IBAction func loginTapped(_ sender: UIButton) {
         
         guard let authUI = FUIAuth.defaultAuthUI() else { return }
         
-        authUI.delegate = self as! FUIAuthDelegate
+        authUI.delegate = self as FUIAuthDelegate
         
         let authViewController = authUI.authViewController()
         present(authViewController, animated: true)
     }
- */
+ 
+}
+extension GameViewController: FUIAuthDelegate {
+    func authUI(_ authUI:FUIAuth ,didSignInWith authDataResult: AuthDataResult?, error: Error?){
+        //check is there's any error haha
+        if error != nil {
+            return
+        }
+        
+        // authDataResult?.user.uid
+        
+        performSegue(withIdentifier: "goHome", sender: self)
+    }
 }

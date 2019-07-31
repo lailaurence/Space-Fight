@@ -14,6 +14,7 @@ import UIKit
 
 class GameOverScene:SKScene {
     let restartLabel = SKLabelNode(fontNamed: "Courier New Bold")
+    let backLabel = SKLabelNode(fontNamed: "Courier New Bold")
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed: "background")
         background.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
@@ -63,6 +64,18 @@ class GameOverScene:SKScene {
         self.addChild(restartLabel)
         print("Displayed restarted label")
         
+        
+        let backLabel = SKLabelNode(fontNamed: "Courier New Bold")
+        backLabel.text = "Back to Main Page"
+        backLabel.fontSize = 50
+        backLabel.fontColor = SKColor.white
+        backLabel.zPosition = 1
+        backLabel.position = CGPoint(x: 600 , y: 1750)
+        self.addChild(backLabel)
+        print("Displayed Back Label")
+        
+        
+        
     
     }
     //Touch "restart button' and redirect
@@ -82,10 +95,10 @@ class GameOverScene:SKScene {
         //}
  */
        // assert(false)
-        changeScene()
+        changeScenetoGameScene()
     }
     
-    func changeScene(){
+    func changeScenetoGameScene(){
         let sceneToMoveTo = DuringGameScene(size: self.size)
         sceneToMoveTo.scaleMode = self.scaleMode
         let myTransition = SKTransition.fade(withDuration: 0.5)

@@ -8,9 +8,22 @@
 
 import SpriteKit
 import GameplayKit
+import FirebaseUI
+import FirebaseAuth
+import Firebase
+import UIKit
 //Score things
 class GameScene: SKScene {
+
+
     
+    
+    
+    
+    
+    
+    
+
     let startLabel = SKLabelNode(fontNamed:"Courier New Bold")
     
     override func didMove(to view: SKView) {
@@ -57,7 +70,10 @@ class GameScene: SKScene {
         
     }
     
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         changeScene()
     }
+ 
+
 }
