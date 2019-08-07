@@ -49,6 +49,7 @@ class GameScene: SKScene {
         
         //Start button
        startLabel.text = "Fight"
+        startLabel.name = "fight"
        startLabel.fontSize = 90
         startLabel.fontColor = SKColor.red
         startLabel.zPosition = 1
@@ -60,6 +61,17 @@ class GameScene: SKScene {
         
         
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first
+        let positionInScene = touch!.location(in:self)
+        let touchedNode = self.atPoint(positionInScene)
+        if let name = touchedNode.name{
+            if name == "fight" {
+                changeScene();
+            }
+        }
+    }
     func changeScene() {
         let sceneToMoveTo = DuringGameScene(size: self.size)
         sceneToMoveTo.scaleMode = self.scaleMode
@@ -70,10 +82,10 @@ class GameScene: SKScene {
         
     }
     
-    
+    /*
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         changeScene()
     }
- 
+ */
 
 }

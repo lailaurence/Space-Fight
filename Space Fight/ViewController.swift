@@ -11,11 +11,12 @@ import UIKit
 import Firebase
 import FirebaseUI
 import FirebaseCore
+import FirebaseDatabase
 
 
 class ViewController: UIViewController {
 
-  
+  //Buttons label compose
     
     @IBOutlet weak var signInSelector: UISegmentedControl!
     
@@ -30,12 +31,16 @@ class ViewController: UIViewController {
     
     var isSignIn:Bool = true
     
+    //database setup dude
+    var ref: DatabaseReference!
+    
+   
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+         ref = Database.database().reference()
     }
     
    
@@ -57,6 +62,8 @@ class ViewController: UIViewController {
     }
     }
     @IBAction func signInSelectorTapped(_ sender: UIButton) {
+        
+       
         var title = ""
         var message = ""
         if let email = emailTextField.text, let pass = passwordTextField.text {

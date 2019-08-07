@@ -18,6 +18,8 @@ target 'Space Fight' do
   pod 'Firebase/Performance'
   pod 'Firebase/InAppMessagingDisplay'
   pod 'Firebase'
+  pod 'Firebase/Database'
+  pod 'Firebase/Firestore'
 
   target 'Space FightTests' do
     inherit! :search_paths

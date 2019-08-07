@@ -10,9 +10,13 @@ import Foundation
 import SpriteKit
 import GameplayKit
 import UIKit
-
+import FirebaseDatabase
+import Firebase
+ var refScore = Database.database().reference().child("High Score")
+var hi = 1
 
 class GameOverScene:SKScene {
+   
     let restartLabel = SKLabelNode(fontNamed: "Courier New Bold")
     let backLabel = SKLabelNode(fontNamed: "Courier New Bold")
     override func didMove(to view: SKView) {
@@ -54,8 +58,11 @@ class GameOverScene:SKScene {
         highScoreLabel.position = CGPoint(x: self.size.width/2 , y: self.size.height*0.45)
         self.addChild(highScoreLabel)
         print ("Displayed high score")
+       
+        
         
         let restartLabel = SKLabelNode(fontNamed: "Courier New Bold")
+        restartLabel.name = "restartlabel"
         restartLabel.text = "Restart"
         restartLabel.fontSize = 90
         restartLabel.fontColor = SKColor.white
@@ -64,6 +71,12 @@ class GameOverScene:SKScene {
         self.addChild(restartLabel)
         print("Displayed restarted label")
         
+        
+        
+        let checkRankingLabel = SKLabelNode(fontNamed: "Courier New Bold")
+        checkRankingLabel.name = "checkRanking"
+        checkRankingLabel.text = "LabelChecking"
+     
         /*
         let backLabel = SKLabelNode(fontNamed: "Courier New Bold")
         backLabel.text = "Back to Main Page"
@@ -74,10 +87,18 @@ class GameOverScene:SKScene {
         self.addChild(backLabel)
         print("Displayed Back Label")
         */
-        
-        
+        func addScore() {
+            let key = refScore.childByAutoId().key
+            let highscoreStore = ["id" : key,
+                                  "HighScore": highScoreNumber as Int
+                
+                ] as [String : Any]
+            refScore.child(key!).setValue(highscoreStore)
+        }
+        addScore()
     
     }
+/*
     //Touch "restart button' and redirect
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
        /* for touch: AnyObject in touches {
@@ -97,7 +118,22 @@ class GameOverScene:SKScene {
        // assert(false)
         changeScenetoGameScene()
     }
-    
+    */
+   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first
+        let positionInScene = touch!.location(in: self)
+        let touchedNode = self.atPoint(positionInScene)
+        
+        if let name = touchedNode.name {
+            if name == "restartlabel" {
+                
+                changeScenetoGameScene();
+                
+            }
+            
+            
+        }
+    }
     func changeScenetoGameScene(){
         let sceneToMoveTo = GameScene(size: self.size)
         sceneToMoveTo.scaleMode = self.scaleMode
@@ -106,3 +142,5 @@ class GameOverScene:SKScene {
         print ("Scene changed to Game Scene")
     }
 }
+
+
