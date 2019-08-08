@@ -10,21 +10,23 @@ import Foundation
 import SpriteKit
 import GameplayKit
 var gameScore = 0
+var originalxp = 0
+var addxp = 0
 
 class DuringGameScene: SKScene,SKPhysicsContactDelegate {
-    //Score things
+    //MARK:Score things
     
     let scoreLabel = SKLabelNode(fontNamed:"Courier New Bold")
     
-    //Level dude
+    //MARK:Level dude
     
     var levelNumber:Int = 0
     
-    //Lives
+    //MARK:Lives
     var livesNumber:Int = 3
     let livesLabel = SKLabelNode(fontNamed: "Courier New Bold")
     
-    //player dude setup
+    //MARK:player dude setup
     let player = SKSpriteNode(imageNamed: "playerShip")
     let bulletSound = SKAction.playSoundFileNamed("Gun+Silencer.mp3", waitForCompletion: false)
     let explosionSound = SKAction.playSoundFileNamed("explosion-01.mp3", waitForCompletion: false)
@@ -49,7 +51,7 @@ class DuringGameScene: SKScene,SKPhysicsContactDelegate {
         return CGFloat(Float(arc4random()) / 0xFFFFFFFF) // Part 2
     }
     
-    func random(min min: CGFloat, max:CGFloat) -> CGFloat {
+    func random(min: CGFloat, max:CGFloat) -> CGFloat {
         return random() * (max - min) + min
     }
     var gameArea:CGRect
@@ -73,13 +75,13 @@ class DuringGameScene: SKScene,SKPhysicsContactDelegate {
         gameScore = 0
         
         self.physicsWorld.contactDelegate=self
-        //Background lol
+        //MARK: Background lol
         let background = SKSpriteNode(imageNamed: "background")
         background.size = self.size
         background.position = CGPoint(x: self.size.width/2 , y: self.size.height/2)
         background.zPosition = 0
         self.addChild(background)
-        //Player dude
+        //MARK:Player dude
         
         player.setScale(1)
         player.position = CGPoint(x: self.size.width/2, y: self.size.height/2 * 0.2)
@@ -91,7 +93,7 @@ class DuringGameScene: SKScene,SKPhysicsContactDelegate {
         player.physicsBody!.contactTestBitMask = PhysicsCatagories.Enemy
         self.addChild(player)
         
-        //Score Label
+        //MARK:Score Label
         scoreLabel.text = "0"
         scoreLabel.fontSize = 70
         scoreLabel.fontColor = SKColor.white
@@ -101,7 +103,7 @@ class DuringGameScene: SKScene,SKPhysicsContactDelegate {
         self.addChild(scoreLabel)
         
         
-        //Lives Label
+        //MARK:Lives Label
         livesLabel.text = "lives : 3"
         livesLabel.fontSize = 60
         livesLabel.fontColor = SKColor.white
@@ -109,14 +111,14 @@ class DuringGameScene: SKScene,SKPhysicsContactDelegate {
         livesLabel.position = CGPoint(x: self.size.width*0.76, y: self.size.height*0.9)
         livesLabel.zPosition = 100
         self.addChild(livesLabel)
-        //Spawn!!! YeahQ
+        //MARK:Spawn!!! YeahQ
         startNewLevel()
         
         
         
     }
     
-    // Lost live(es) :( GG So sad
+    //MARK: Lost live(es) :( GG So sad
     func loseALife() {
         livesNumber -= 1
         livesLabel.text = "Lives : \(livesNumber)"
@@ -132,23 +134,25 @@ class DuringGameScene: SKScene,SKPhysicsContactDelegate {
         
     }
     
-    //Adding score thingy
+    //MARK:Adding score thingy
     func addScore() {
         
         gameScore += 1
         scoreLabel.text = "Score: \(gameScore)"
         print("Game added 1 ,current score is \(gameScore)")
-        
-        if gameScore == 10 || gameScore == 25 || gameScore == 50 {
+        //MARK: Level
+        if gameScore == 5 || gameScore == 10 || gameScore == 30{
             startNewLevel()
             print("Level Increased")
         }
+        
     }
     
-    //GameOver thingy :(( GG
+    //MARK:GameOver thingy :(( GG
     
     func runGameOver() {
         currentGameState = gameState.afterGame
+        //MARk: Level Counting
         
         self.removeAllActions()
         self.enumerateChildNodes(withName: "Bullet"){
@@ -162,6 +166,45 @@ class DuringGameScene: SKScene,SKPhysicsContactDelegate {
             enemy.removeAllActions()
         }
         print("Game ", "Over")
+        //Level System
+        
+        let savedXP:Int = UserDefaults.standard.object(forKey: "xpSaved") as! Int
+        if  gameScore < 10 && gameScore > 5 {
+             addxp += 2
+            let currentxp = savedXP + addxp
+            print("XP+2")
+            UserDefaults.standard.set(currentxp, forKey: "xpSaved")
+            
+            
+        } else if gameScore < 5{
+            addxp += 1
+            print("XP+1")
+            let currentxp = savedXP + addxp
+             UserDefaults.standard.set(currentxp, forKey: "xpSaved")
+        } else if gameScore > 10 && gameScore < 15 {
+            addxp += 3
+            print("XP+3")
+            let currentxp = savedXP + addxp
+             UserDefaults.standard.set(currentxp, forKey: "xpSaved")
+        } else if gameScore > 15 && gameScore < 20 {
+            addxp += 4
+            print("XP+4")
+            let currentxp = savedXP + addxp
+             UserDefaults.standard.set(currentxp, forKey: "xpSaved")
+        } else if gameScore > 20 && gameScore < 25 {
+            addxp += 5
+            print("XP+5")
+            let currentxp = savedXP + addxp
+             UserDefaults.standard.set(currentxp, forKey: "xpSaved")
+        } else if gameScore > 20 {
+            addxp += 6
+            print("XP+6")
+            let currentxp = savedXP + addxp
+             UserDefaults.standard.set(currentxp, forKey: "xpSaved")
+        }
+        
+        
+        
         
         let changeSceneAction = SKAction.run(changeScene)
         let waitToChangeScene = SKAction.wait(forDuration: 1)
@@ -170,10 +213,10 @@ class DuringGameScene: SKScene,SKPhysicsContactDelegate {
         
     }
     
-    //Scene change
+    //MARK:Scene change
     func changeScene() {
         
-        let sceneToMoveTo = GameRankingScene(size:self.size)
+        let sceneToMoveTo = GameOverScene(size:self.size)
         sceneToMoveTo.scaleMode = self.scaleMode
         let transition = SKTransition.fade(withDuration: 0.5)
         self.view!.presentScene(sceneToMoveTo, transition: transition )
@@ -181,7 +224,7 @@ class DuringGameScene: SKScene,SKPhysicsContactDelegate {
         
         
     }
-    
+    //MARK:
     func didBegin(_ contact: SKPhysicsContact) {
         
         var body1 = SKPhysicsBody()
@@ -232,7 +275,7 @@ class DuringGameScene: SKScene,SKPhysicsContactDelegate {
             
         }
     }
-    //Explosion animation bombombomb
+    //MARK:Explosion animation bombombomb
     func spawnExplosion(spawnPosition: CGPoint){
         let explosion = SKSpriteNode(imageNamed: "explosion")
         explosion.position = spawnPosition
@@ -338,7 +381,7 @@ class DuringGameScene: SKScene,SKPhysicsContactDelegate {
         
         
     }
-    //calling Fire Bullet hehe
+    //MARK: calling Fire Bullet hehe
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if currentGameState == gameState.inGame {
             fireBullet()

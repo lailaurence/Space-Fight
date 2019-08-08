@@ -116,9 +116,12 @@
                             <constraint firstItem="AmZ-GN-vf6" firstAttribute="leading" secondItem="rC5-Mb-aop" secondAttribute="leading" id="zWD-ZE-BMs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rC5-Mb-aop"/>
+                        <connections>
+                            <outlet property="emailTextField" destination="dzJ-LK-srK" id="2xx-r4-TnU"/>
+                        </connections>
                     </view>
                     <connections>
-                        <outlet property="emailTextField" destination="dzJ-LK-srK" id="A7v-lZ-Gxv"/>
+                        <outlet property="emailTextField" destination="dzJ-LK-srK" id="MjL-VL-bc6"/>
                         <outlet property="passwordTextField" destination="kQc-Vs-H2s" id="BEx-BC-UEx"/>
                         <outlet property="signInButton" destination="hXp-Rh-Prf" id="jyu-aQ-nef"/>
                         <outlet property="signInLabel" destination="rta-Th-jaH" id="LPX-M6-QIz"/>

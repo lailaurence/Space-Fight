@@ -11,6 +11,7 @@ import SpriteKit
 import FirebaseDatabase
 import Firebase
 var highscore:Int = 0
+let defaults = UserDefaults()
 
 class GameRankingScene:SKScene{
 
@@ -20,7 +21,7 @@ class GameRankingScene:SKScene{
         
       
 }
-    
+     let highScoreNumber = defaults.integer(forKey: "highScoreSaved")
     
     override func didMove(to view: SKView) {
         //Background
@@ -38,7 +39,9 @@ class GameRankingScene:SKScene{
                 print(userDict["HighScore"] as Any)
             }
             
-        }) 
+        })
+        
+        
     }
        
 

@@ -33,8 +33,24 @@ class GameScene: SKScene {
         background.zPosition = 0
         self.addChild(background)
         
-        // Game Title
+        
+        //MARK: Level System
+        //MARK: Username display
         let x = UserDefaults.standard.object(forKey: "usernameSaved")
+        let usernameLabel = SKLabelNode(fontNamed: "Courier New Bold")
+        usernameLabel.text = "Username: \((x as! String))"
+        usernameLabel.fontSize = 45
+        usernameLabel.fontColor = SKColor.white
+        usernameLabel.position = CGPoint(x:520,y: 1800)
+        usernameLabel.zPosition = 1
+        self.addChild(usernameLabel)
+        print("Displayed UsernameLabel")
+     
+        
+        
+        
+        //MARK: Game Title
+       
         let titleLabel = SKLabelNode(fontNamed:"Courier New Bold")
         titleLabel.text = "Space Fight"
         titleLabel.fontSize = 130
@@ -48,7 +64,9 @@ class GameScene: SKScene {
         
         
         
-        //Start button
+        
+        
+        //MARK: Start button
        startLabel.text = "Fight"
         startLabel.name = "fight"
        startLabel.fontSize = 90
@@ -64,6 +82,7 @@ class GameScene: SKScene {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        //MARK: Change Scene Button
         let touch = touches.first
         let positionInScene = touch!.location(in:self)
         let touchedNode = self.atPoint(positionInScene)
@@ -73,6 +92,8 @@ class GameScene: SKScene {
             }
         }
     }
+    
+    //MARK:Change Scene Function
     func changeScene() {
         let sceneToMoveTo = DuringGameScene(size: self.size)
         sceneToMoveTo.scaleMode = self.scaleMode
