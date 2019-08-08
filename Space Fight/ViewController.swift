@@ -29,10 +29,24 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var signInButton: UIButton!
     
+    
+    @IBOutlet weak var usernameTextField: UITextField!
+    
     var isSignIn:Bool = true
     
     //database setup dude
     var ref: DatabaseReference!
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
         //notification
     func showAlert(_ title:String , _ message:String ) {
@@ -74,11 +88,25 @@ class ViewController: UIViewController {
     @IBAction func signInButtonTapped(_ sender: UIButton) {
         var title = ""
         var message = ""
+        
+        
+      
+        
         if let email = emailTextField.text, let pass = passwordTextField.text {
             if isSignIn {
                 Auth.auth().signIn(withEmail: email, password: pass) { (user, error) in
                     if let u = user {
-                        self.performSegue(withIdentifier: "goToHome", sender: self)
+                        if let text = self.usernameTextField.text, !text.isEmpty {
+                            UserDefaults.standard.set(self.usernameTextField.text, forKey: "usernameSaved")
+                            self.usernameTextField.text = ""
+                            self.performSegue(withIdentifier: "goToHome", sender: self)
+                          
+                        }else {
+                            title = "Username Issue"
+                            message = "Username requird! "
+                            self.showAlert(title, message)
+                        }
+                        
                     }else {
                         title = " Sign In Issue"
                         message = "Sign in due to error "
@@ -92,8 +120,17 @@ class ViewController: UIViewController {
             }else {
                 Auth.auth().createUser(withEmail: email, password: pass) { (user, error) in
                     if let u = user {
-                        self.performSegue(withIdentifier: "goToHome", sender: self)
-                        
+                       
+                        if let text = self.usernameTextField.text, !text.isEmpty {
+                            UserDefaults.standard.set(self.usernameTextField.text, forKey: "usernameSaved")
+                            self.usernameTextField.text = ""
+                            self.performSegue(withIdentifier: "goToHome", sender: self)
+                         
+                        }else {
+                            title = "Username Issue"
+                            message = "Username requird! "
+                            self.showAlert(title, message)
+                        }
                     }else {
                         title = " Register Issue"
                         message = "Can't register due to error "
@@ -109,6 +146,8 @@ class ViewController: UIViewController {
         
         
     }
+    
+   
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         //dismiss keyboard 8978
         emailTextField.resignFirstResponder()
