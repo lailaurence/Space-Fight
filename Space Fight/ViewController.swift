@@ -34,6 +34,15 @@ class ViewController: UIViewController {
     //database setup dude
     var ref: DatabaseReference!
     
+        //notification
+    func showAlert(_ title:String , _ message:String ) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(alertAction)
+        present(alert, animated: true , completion: nil)
+        
+    }
+
    
     
     
@@ -45,7 +54,7 @@ class ViewController: UIViewController {
     
    
     
-    
+    /*
     @IBAction func signInSelectorChanged(_ sender: UISegmentedControl) {
         //Flip the bool
         isSignIn = !isSignIn
@@ -60,47 +69,46 @@ class ViewController: UIViewController {
             signInButton.setTitle("Register", for: .normal)
             
     }
-    }
-    @IBAction func signInSelectorTapped(_ sender: UIButton) {
-        
-       
+ */
+    
+    @IBAction func signInButtonTapped(_ sender: UIButton) {
         var title = ""
         var message = ""
         if let email = emailTextField.text, let pass = passwordTextField.text {
             if isSignIn {
                 Auth.auth().signIn(withEmail: email, password: pass) { (user, error) in
-                     if let u = user {
-                       self.performSegue(withIdentifier: "goToHome", sender: self)
-                }else {
+                    if let u = user {
+                        self.performSegue(withIdentifier: "goToHome", sender: self)
+                    }else {
                         title = " Sign In Issue"
                         message = "Sign in due to error "
                         self.showAlert(title, message)
                         
                         
-                
-                }
+                        
+                    }
                 }
                 
             }else {
                 Auth.auth().createUser(withEmail: email, password: pass) { (user, error) in
                     if let u = user {
                         self.performSegue(withIdentifier: "goToHome", sender: self)
-
+                        
                     }else {
                         title = " Register Issue"
                         message = "Can't register due to error "
                         self.showAlert(title, message)
                         
                         
-        }
-      
-        }
+                    }
+                    
+                }
             }
         }
+        
+        
+        
     }
-    
-    
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         //dismiss keyboard 8978
         emailTextField.resignFirstResponder()
@@ -109,17 +117,49 @@ class ViewController: UIViewController {
     
     
     
-    //notification
-    func showAlert(_ title:String , _ message:String ) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-        alert.addAction(alertAction)
-        present(alert, animated: true , completion: nil)
+    @IBAction func signInSelectorChanged(_ sender: UISegmentedControl) {
+        //Flip the bool
+        isSignIn = !isSignIn
+        //Check bool LD
+        
+        if isSignIn {
+            
+            signInLabel.text = "Sign In"
+            signInButton.setTitle("Sign In" , for: .normal)
+        }else {
+            signInLabel.text = "Register"
+            signInButton.setTitle("Register", for: .normal)
         
     }
 
+        
+ 
+
+
+
+
+
+
+
+
+
+
+
+        
+        
+        
+       
+  
     
     
+   
+    
+    
+
+   
+    
+    
+}
 }
 
     /*
@@ -176,4 +216,7 @@ extension ViewController: FUIAuthDelegate {
 */
 
  
+
+
+
 

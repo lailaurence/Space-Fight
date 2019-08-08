@@ -13,9 +13,23 @@ import Firebase
 
 
 class GameRankingScene:SKScene{
-    
-    
-    let databaseRef = Database.database().reference()
-    databaseRef.child("HighScore")
+    var postData = [String]()
+    override func sceneDidLoad() {
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        ref?.child("High Score").observe(.childAdded, with: {(snapshot) in
+            let post = snapshot.value as? String
+            
+            if let actualPost = post{
+            self.postData.append(actualPost)
+            }
+        })
+
 }
 
+    
+    
+    
+    
+    
+}
