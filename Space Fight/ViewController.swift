@@ -99,6 +99,8 @@ class ViewController: UIViewController {
                         if let text = self.usernameTextField.text, !text.isEmpty {
                             UserDefaults.standard.set(self.usernameTextField.text, forKey: "usernameSaved")
                             self.usernameTextField.text = ""
+                            let x = UserDefaults.standard.object(forKey: "usernameSaved")
+                            print("Username: \(String(describing: x)) Data saved")
                             self.performSegue(withIdentifier: "goToHome", sender: self)
                           
                         }else {
@@ -122,10 +124,13 @@ class ViewController: UIViewController {
                     if let u = user {
                        
                         if let text = self.usernameTextField.text, !text.isEmpty {
+                           
                             UserDefaults.standard.set(self.usernameTextField.text, forKey: "usernameSaved")
                             self.usernameTextField.text = ""
+                            let x = UserDefaults.standard.object(forKey: "usernameSaved")
+                            print("Username: \(x) Data saved")
                             self.performSegue(withIdentifier: "goToHome", sender: self)
-                         
+                            
                         }else {
                             title = "Username Issue"
                             message = "Username requird! "

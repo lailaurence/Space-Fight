@@ -34,9 +34,9 @@ class GameScene: SKScene {
         self.addChild(background)
         
         // Game Title
-        let x = UserDefaults.standard.object(forKey: "username")
+        let x = UserDefaults.standard.object(forKey: "usernameSaved")
         let titleLabel = SKLabelNode(fontNamed:"Courier New Bold")
-        titleLabel.text = "Space Fight" 
+        titleLabel.text = "Space Fight"
         titleLabel.fontSize = 130
         titleLabel.fontColor = SKColor.white
         titleLabel.position = CGPoint(x: self.size.width*0.5, y: self.size.height*0.7)

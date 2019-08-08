@@ -17,6 +17,7 @@ var hi = 1
 
 class GameOverScene:SKScene {
    
+   
     let restartLabel = SKLabelNode(fontNamed: "Courier New Bold")
     let backLabel = SKLabelNode(fontNamed: "Courier New Bold")
     override func didMove(to view: SKView) {
@@ -87,16 +88,22 @@ class GameOverScene:SKScene {
         self.addChild(backLabel)
         print("Displayed Back Label")
         */
+        
+        //Upload data to firebase
         func addScore() {
+            let x = UserDefaults.standard.object(forKey: "usernameSaved")
+            guard let y = UIDevice.current.identifierForVendor?.uuidString else { return }
             let key = refScore.childByAutoId().key
-            let highscoreStore = ["id" : key,
+            let highscoreStore = ["id" : key as Any,
+                                  "Username": x as Any,
                                   "HighScore": highScoreNumber as Int
                 
+                
                 ] as [String : Any]
-            refScore.child(key!).setValue(highscoreStore)
+            refScore.child(y).setValue(highscoreStore)
         }
         addScore()
-    
+        
     }
 /*
     //Touch "restart button' and redirect

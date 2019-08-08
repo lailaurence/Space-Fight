@@ -10,26 +10,46 @@ import Foundation
 import SpriteKit
 import FirebaseDatabase
 import Firebase
-
+var highscore:Int = 0
 
 class GameRankingScene:SKScene{
+
+    
     var postData = [String]()
     override func sceneDidLoad() {
+        
+      
+}
+    
+    
+    override func didMove(to view: SKView) {
+        //Background
+        let background = SKSpriteNode(imageNamed: "background")
+        background.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
+        background.zPosition = 0
+        self.addChild(background)
+        
         var ref: DatabaseReference!
-        ref = Database.database().reference()
+        ref = Database.database().reference().child("High Score").child("HighScore")
         ref?.child("High Score").observe(.childAdded, with: {(snapshot) in
-            let post = snapshot.value as? String
             
-            if let actualPost = post{
-            self.postData.append(actualPost)
+            if let userDict = snapshot.value as? [String:Any] {
+                //Do not cast print it directly may be score is Int not string
+                print(userDict["HighScore"] as Any)
             }
-        })
+            
+        }) 
+    }
+       
 
-}
+        
+        
+    }
 
     
     
     
     
     
-}
+
+
