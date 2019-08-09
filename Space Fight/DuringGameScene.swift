@@ -5,7 +5,6 @@
 //  Created by Lai Ka Ming Laurence on 11/7/2019.
 //  Copyright © 2019 Lai Ka Ming Laurence. All rights reserved.
 //
-
 import Foundation
 import SpriteKit
 import GameplayKit
@@ -167,40 +166,44 @@ class DuringGameScene: SKScene,SKPhysicsContactDelegate {
         }
         print("Game ", "Over")
         //Level System
+        //TODO: When can read data, change this to retrieve data from database
+        let savedXP:Int = UserDefaults.standard.object(forKey: "xpSaved") as? Int ?? 0
         
-        let savedXP:Int = UserDefaults.standard.object(forKey: "xpSaved") as! Int
+        
+        
         if  gameScore < 10 && gameScore > 5 {
-             addxp += 2
+            addxp += 2
             let currentxp = savedXP + addxp
             print("XP+2")
             UserDefaults.standard.set(currentxp, forKey: "xpSaved")
-            
+            UserDefaults.standard.set(addxp, forKey: "xpAdded")
             
         } else if gameScore < 5{
             addxp += 1
             print("XP+1")
             let currentxp = savedXP + addxp
-             UserDefaults.standard.set(currentxp, forKey: "xpSaved")
+            UserDefaults.standard.set(currentxp, forKey: "xpSaved")
+             UserDefaults.standard.set(addxp, forKey: "xpAdded")
         } else if gameScore > 10 && gameScore < 15 {
             addxp += 3
             print("XP+3")
             let currentxp = savedXP + addxp
-             UserDefaults.standard.set(currentxp, forKey: "xpSaved")
+            UserDefaults.standard.set(currentxp, forKey: "xpSaved")
         } else if gameScore > 15 && gameScore < 20 {
             addxp += 4
             print("XP+4")
             let currentxp = savedXP + addxp
-             UserDefaults.standard.set(currentxp, forKey: "xpSaved")
+            UserDefaults.standard.set(currentxp, forKey: "xpSaved")
         } else if gameScore > 20 && gameScore < 25 {
             addxp += 5
             print("XP+5")
             let currentxp = savedXP + addxp
-             UserDefaults.standard.set(currentxp, forKey: "xpSaved")
+            UserDefaults.standard.set(currentxp, forKey: "xpSaved")
         } else if gameScore > 20 {
             addxp += 6
             print("XP+6")
             let currentxp = savedXP + addxp
-             UserDefaults.standard.set(currentxp, forKey: "xpSaved")
+            UserDefaults.standard.set(currentxp, forKey: "xpSaved")
         }
         
         
@@ -413,4 +416,3 @@ class DuringGameScene: SKScene,SKPhysicsContactDelegate {
         }
     }
 }
-

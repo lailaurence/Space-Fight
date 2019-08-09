@@ -40,7 +40,7 @@ class ViewController: UIViewController {
     
     
     
-   
+    
     
     
     
@@ -96,11 +96,19 @@ class ViewController: UIViewController {
             if isSignIn {
                 Auth.auth().signIn(withEmail: email, password: pass) { (user, error) in
                     if let u = user {
+                        //MARk:Username
                         if let text = self.usernameTextField.text, !text.isEmpty {
                             UserDefaults.standard.set(self.usernameTextField.text, forKey: "usernameSaved")
                             self.usernameTextField.text = ""
                             let x = UserDefaults.standard.object(forKey: "usernameSaved")
-                            print("Username: \(String(describing: x)) Data saved")
+                            print("Username: \(x) Data saved")
+                         
+                           
+                           
+                            //MARK: Email
+                            let email = self.emailTextField.text
+                            UserDefaults.standard.set(email, forKey: "emailSaved")
+                            print("Email: \(String(describing: email)) saved!")
                             self.performSegue(withIdentifier: "goToHome", sender: self)
                           
                         }else {
@@ -170,6 +178,7 @@ class ViewController: UIViewController {
             
             signInLabel.text = "Sign In"
             signInButton.setTitle("Sign In" , for: .normal)
+            
         }else {
             signInLabel.text = "Register"
             signInButton.setTitle("Register", for: .normal)

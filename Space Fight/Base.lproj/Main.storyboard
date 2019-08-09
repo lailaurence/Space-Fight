@@ -116,9 +116,6 @@
                             <constraint firstItem="AmZ-GN-vf6" firstAttribute="leading" secondItem="rC5-Mb-aop" secondAttribute="leading" id="zWD-ZE-BMs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rC5-Mb-aop"/>
-                        <connections>
-                            <outlet property="emailTextField" destination="dzJ-LK-srK" id="2xx-r4-TnU"/>
-                        </connections>
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="dzJ-LK-srK" id="MjL-VL-bc6"/>

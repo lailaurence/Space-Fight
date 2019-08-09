@@ -15,10 +15,11 @@ import Firebase
  var refScore = Database.database().reference().child("High Score")
 var hi = 1
 
+
 class GameOverScene:SKScene {
    
     let a = 2
-    var ViewController : ViewController?
+    
     
     let restartLabel = SKLabelNode(fontNamed: "Courier New Bold")
     let backLabel = SKLabelNode(fontNamed: "Courier New Bold")
@@ -32,7 +33,7 @@ class GameOverScene:SKScene {
         let gameoverLabel = SKLabelNode(fontNamed: "Courier New Bold")
         gameoverLabel.text = "Game Over"
         gameoverLabel.fontSize = 150
-        gameoverLabel.fontColor = SKColor.white
+        gameoverLabel.fontColor = SKColor.red
         gameoverLabel.position = CGPoint(x: self.size.width*0.5, y: self.size.height*0.7)
         gameoverLabel.zPosition = 1
         self.addChild(gameoverLabel)
@@ -44,6 +45,10 @@ class GameOverScene:SKScene {
         scoreLabel.position = CGPoint(x: self.size.width/2, y: self.size.height*0.55)
         scoreLabel.zPosition = 1
         self.addChild(scoreLabel)
+        
+        
+        
+        
         //MARKLHigh score
         let defaults = UserDefaults()
         
@@ -62,6 +67,20 @@ class GameOverScene:SKScene {
         highScoreLabel.position = CGPoint(x: self.size.width/2 , y: self.size.height*0.45)
         self.addChild(highScoreLabel)
         print ("Displayed high score")
+        
+        //MARk: Xp added Label
+        let xpAdded:Int = UserDefaults.standard.object(forKey: "xpAdded") as! Int
+        let xpAddedLabel = SKLabelNode(fontNamed: "Courier New Bold")
+        xpAddedLabel.text = "XP Added : \(xpAdded)"
+        xpAddedLabel.fontSize = 70
+        xpAddedLabel.fontColor = SKColor.white
+        xpAddedLabel.zPosition = 1
+        xpAddedLabel.position = CGPoint(x: self.size.width/2 , y: self.size.height*0.38)
+        self.addChild(xpAddedLabel)
+        print("Displayed XPAdded Label.")
+        
+        
+        
         //MARK:Uploading data to data center
         func uploadData() {
             
@@ -70,23 +89,26 @@ class GameOverScene:SKScene {
             let key = refScore.childByAutoId().key
             let device = UIDevice.modelName
             let z = UserDefaults.standard.object(forKey: "xpSaved")
-           
+            let e = UserDefaults.standard.object(forKey: "emailSaved")
+            guard let uid = Auth.auth().currentUser?.uid else { return }
+            
             let highscoreStore = [
                 
-                                  "id" : key as Any,
-                                  "Username": x as Any,
-                                  "HighScore": highScoreNumber as Int,
-                                  "XP": z as! Int,
-                                  "Device": device
+                "id" : key as Any,
+                "Username": x as Any,
+                "HighScore": highScoreNumber as Int,
+                "XP": z as! Int,
+                "Device": device,
+                "xpAdded": xpAdded as Any
                 
                 
                 
                 
                 ] as [String : Any]
-            refScore.child(y).setValue(highscoreStore)
+            refScore.child(uid).setValue(highscoreStore)
         }
         uploadData()
-        
+       
         let restartLabel = SKLabelNode(fontNamed: "Courier New Bold")
         restartLabel.name = "restartlabel"
         restartLabel.text = "Restart"
@@ -114,7 +136,7 @@ class GameOverScene:SKScene {
         print("Displayed Back Label")
         */
         
-        //MARK:Upload data to firebase
+       
     
         
     }
