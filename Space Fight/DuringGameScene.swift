@@ -219,7 +219,7 @@ class DuringGameScene: SKScene,SKPhysicsContactDelegate {
     //MARK:Scene change
     func changeScene() {
         
-        let sceneToMoveTo = GameOverScene(size:self.size)
+        let sceneToMoveTo = GameRankingScene(size:self.size)
         sceneToMoveTo.scaleMode = self.scaleMode
         let transition = SKTransition.fade(withDuration: 0.5)
         self.view!.presentScene(sceneToMoveTo, transition: transition )

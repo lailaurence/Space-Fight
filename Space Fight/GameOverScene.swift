@@ -81,6 +81,10 @@ class GameOverScene:SKScene {
         
         
         
+        
+        
+        
+        
         //MARK:Uploading data to data center
         func uploadData() {
             

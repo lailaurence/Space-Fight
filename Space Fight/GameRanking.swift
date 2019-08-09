@@ -30,20 +30,26 @@ class GameRankingScene:SKScene{
         background.zPosition = 0
         self.addChild(background)
         
-        var ref: DatabaseReference!
-        ref = Database.database().reference().child("High Score").child("HighScore")
-        ref?.child("High Score").observe(.childAdded, with: {(snapshot) in
+        let ref = Database.database().reference(withPath: "High Score")
+        ref.observeSingleEvent(of: .value, with: { snapshot in
             
-            if let userDict = snapshot.value as? [String:Any] {
-                //Do not cast print it directly may be score is Int not string
-                print(userDict["HighScore"] as Any)
-            }
+            if !snapshot.exists() { return }
             
-        })
+            print(snapshot) // Its print all values including Snap (User)
+            
+            print(snapshot.value!)
+            
+            //let xp = snapshot.childSnapshot(forPath: "XP").value
+           
+            let xp = snapshot.childSnapshot(forPath: "XP").value
+            print("XP: \(xp!)")
+            
+            
         
         
-    }
+    })
        
+        
 
         
         
@@ -56,3 +62,4 @@ class GameRankingScene:SKScene{
     
 
 
+}
