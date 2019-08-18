@@ -135,20 +135,27 @@ class ViewController : UIViewController {
     @IBAction func signInButtonTapped(_ sender: UIButton) {
         var title = ""
         var message = ""
+        let maximumchar = usernameTextField.text!.count
  
         if let email = emailTextField.text, let pass = passwordTextField.text {
             if isSignIn {
                 Auth.auth().signIn(withEmail: email, password: pass) { (user, error) in
                     if let u = user {
+                        //MARK: Limit UITextField character
+                        if maximumchar == 13 || maximumchar > 13{
+                            title = "Username Issue"
+                            message = "Username length is too long! :( "
+                            self.showAlert(title, message)
+                        }
                         //MARk:Username
                         if let text = self.usernameTextField.text, !text.isEmpty {
                             UserDefaults.standard.set(self.usernameTextField.text, forKey: "usernameSaved")
                             self.usernameTextField.text = ""
                             let x = UserDefaults.standard.object(forKey: "usernameSaved")
                             print("Username: \(x) Data saved")
-                         
+                            
                            
-                           
+                        
                             //MARK: Email
                             let email = self.emailTextField.text
                             UserDefaults.standard.set(email, forKey: "emailSaved")

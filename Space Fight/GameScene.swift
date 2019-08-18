@@ -115,16 +115,26 @@ var levelMinimum = 0
        
         //Level Label
         let levelLabel = SKLabelNode(fontNamed: "Courier New Bold")
-        let UserLevel = UserDefaults.standard.object(forKey: "UserLevel")
+        let UserLevel:Int = UserDefaults.standard.object(forKey: "UserLevel")as? Int ?? 0
         levelLabel.text = "Level \(UserLevel) "
+        levelLabel.fontSize = 35
+        levelLabel.fontColor = SKColor.white
+        levelLabel.position = CGPoint(x: 1000 ,y: 1850)
+        levelLabel.zPosition = 1
+        self.addChild(levelLabel)
         print("Level \(UserLevel)")
         
         
         
-        
+        //MARK: XP Label Display
         let xpLabel = SKLabelNode(fontNamed: "Courier New Bold")
-        let XPMax = UserDefaults.standard.object(forKey: "xpMinimum")
+        let XPMax:Int = UserDefaults.standard.object(forKey: "xpMinimum") as?Int ?? 0
         xpLabel.text = "XP:\(userxp)/\(XPMax) "
+        xpLabel.fontSize  = 45
+        xpLabel.fontColor = SKColor.white
+        xpLabel.position = CGPoint(x: 1000, y:1800)
+        xpLabel.zPosition = 1
+        self.addChild(xpLabel)
         print("XP:\(userxp)/\(XPMax)")
         
         

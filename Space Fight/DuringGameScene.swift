@@ -79,7 +79,7 @@ class DuringGameScene: SKScene,SKPhysicsContactDelegate {
         
         self.physicsWorld.contactDelegate=self
         //MARK: Background lol
-        let background = SKSpriteNode(imageNamed: "background")
+        let background = SKSpriteNode(imageNamed: "background2")
         background.size = self.size
         background.position = CGPoint(x: self.size.width/2 , y: self.size.height/2)
         background.zPosition = 0
@@ -97,7 +97,7 @@ class DuringGameScene: SKScene,SKPhysicsContactDelegate {
         self.addChild(player)
         
         //MARK:Score Label
-        scoreLabel.text = "0"
+        scoreLabel.text = "0"//TODO: Remove 0 in offical version
         scoreLabel.fontSize = 70
         scoreLabel.fontColor = SKColor.white
         scoreLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left

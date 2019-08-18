@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Space Fight/ViewController.swift"
-            timestampString = "587745345.684908"
+            timestampString = "587795490.487561"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "signInButtonTapped(_:)"
             landmarkType = "7">
             <Locations>

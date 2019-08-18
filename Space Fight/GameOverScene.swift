@@ -29,7 +29,7 @@ class GameOverScene:SKScene {
     let backLabel = SKLabelNode(fontNamed: "Courier New Bold")
     override func didMove(to view: SKView) {
         //MARK: Background
-        let background = SKSpriteNode(imageNamed: "background")
+        let background = SKSpriteNode(imageNamed: "background2")
         background.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
         background.zPosition = 0
         self.addChild(background)
@@ -100,6 +100,8 @@ class GameOverScene:SKScene {
             let z = UserDefaults.standard.object(forKey: "xpSaved")
             let e = UserDefaults.standard.object(forKey: "emailSaved")
             guard let uid = Auth.auth().currentUser?.uid else { return }
+            let userLevel:Int = UserDefaults.standard.object(forKey: "UserLevel") as? Int ?? 0
+            let xpMaximum:Int = UserDefaults.standard.object(forKey: "xpMinimum") as? Int ?? 0
             
             let highscoreStore = [
                 
@@ -107,8 +109,13 @@ class GameOverScene:SKScene {
                 "username": x as Any,
                 "highscore": highScoreNumber as Int,
                 "xp": z as! Int,
+                "UserLevel": userLevel as Int,
+                "xpMaximum": xpMaximum as Int,
                 "device": device,
-                "xpadded": xpAdded as Any
+                "xpadded": xpAdded as Any,
+                
+                
+                
                 
                 
                 
