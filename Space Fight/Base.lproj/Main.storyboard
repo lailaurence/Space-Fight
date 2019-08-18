@@ -108,6 +108,14 @@
                                     <constraint firstItem="gyC-SC-VEX" firstAttribute="leading" secondItem="AmZ-GN-vf6" secondAttribute="leadingMargin" id="sib-QK-snQ"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kcx-AT-V2g">
+                                <rect key="frame" x="7" y="678" width="123" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Forgot Password?"/>
+                                <connections>
+                                    <action selector="forgotpasswordButton:" destination="1yE-jP-svw" eventType="touchUpInside" id="pCU-PM-x46"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.058708213269710541" green="0.13048896193504333" blue="0.19873565435409546" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -117,8 +125,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rC5-Mb-aop"/>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="emailTextField" destination="dzJ-LK-srK" id="MjL-VL-bc6"/>
+                        <outlet property="forgotpasswordButton" destination="Kcx-AT-V2g" id="o5k-V8-f9E"/>
                         <outlet property="passwordTextField" destination="kQc-Vs-H2s" id="BEx-BC-UEx"/>
                         <outlet property="signInButton" destination="hXp-Rh-Prf" id="jyu-aQ-nef"/>
                         <outlet property="signInLabel" destination="rta-Th-jaH" id="LPX-M6-QIz"/>

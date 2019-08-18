@@ -34,6 +34,8 @@ class ViewController : UIViewController {
     
     
     
+    @IBOutlet weak var forgotpasswordButton: UIButton!
+    
     
     
     
@@ -132,26 +134,119 @@ class ViewController : UIViewController {
     }
  */
     
+    //MARK: Forgot password 
+    
+    @IBAction func forgotpasswordButton(_ sender: UIButton) {
+        var title = ""
+        var message = ""
+        Auth.auth().sendPasswordReset(withEmail:emailTextField.text!, completion: { error in
+            
+            if let text = self.emailTextField.text, !text.isEmpty {
+                //If textfield is not blank
+            if error != nil
+            {
+                
+                print("forgot password: error ")
+                title = "Unknown Issue"
+                message = "Failed to send recovery email. Please ensure that you typed a registered email or try again later. If problem continue to occur, please contact Space Fight Support Team. "
+               self.showAlert(title, message)
+                
+                
+                // Error - Unidentified Email
+                
+            }
+            else
+            {
+                print("forgot password: success")
+                title = "Recovery Email Has Been Sent"
+                message = "Recovery email has been sent! Please check your registered email mailbox."
+                self.showAlert(title, message)
+                // Success - Sent recovery email
+            }
+            
+            }else {
+                
+                //If textfield is blank
+                title = "Unknown Email"
+                message = "Please type your registered email in the email textbox, so that we can send you a recovery email."
+                self.showAlert(title, message)
+            }
+        
+        
+       
+        })
+        
+    }
+    
+    
     @IBAction func signInButtonTapped(_ sender: UIButton) {
         var title = ""
         var message = ""
+        
         let maximumchar = usernameTextField.text!.count
  
         if let email = emailTextField.text, let pass = passwordTextField.text {
             if isSignIn {
                 Auth.auth().signIn(withEmail: email, password: pass) { (user, error) in
                     if let u = user {
+                        
+                        
+                        
                         //MARK: Limit UITextField character
                         if maximumchar == 13 || maximumchar > 13{
                             title = "Username Issue"
-                            message = "Username length is too long! :( "
+                            message = "Username is too long! Maximum 13 characters only(Include spaces)!"
                             self.showAlert(title, message)
                         }
                         //MARk:Username
+                        let usernametext = self.usernameTextField.text
+                        let banneddots:String = "."
+                        let banneddollarsign:String = "$"
+                        let leftsquarebracket:String = "["
+                        let rightsquarebracket:String = "]"
+                        let hashtag:String = "#"
+                        let slash:String = "/"
+                        
+                        
+                        
+                        if usernametext!.contains(banneddots){
+                            title = "Username Issue"
+                            message = "Username can't include ( . $ [ ] # / ). Please remove them from your username."
+                            self.showAlert(title, message)
+                            print("BAN!")
+                        }else if usernametext!.contains(banneddollarsign){
+                            title = "Username Issue"
+                            message = "Username can't include ( . $ [ ] # / ). Please remove them from your username."
+                            self.showAlert(title, message)
+                            print("BAN!")
+                        } else if usernametext!.contains(leftsquarebracket){
+                            title = "Username Issue"
+                            message = "Username can't include ( . $ [ ] # / ). Please remove them from your username."
+                            self.showAlert(title, message)
+                            print("BAN!")
+                        }else if usernametext!.contains(rightsquarebracket){
+                            title = "Username Issue"
+                            message = "Username can't include ( . $ [ ] # / ). Please remove them from your username."
+                            self.showAlert(title, message)
+                            print("BAN!")
+                        }else if usernametext!.contains(hashtag){
+                            title = "Username Issue"
+                            message = "Username can't include ( . $ [ ] # / ). Please remove them from your username."
+                            self.showAlert(title, message)
+                            print("BAN!")
+                        }else if usernametext!.contains(slash){
+                            title = "Username Issue"
+                            message = "Username can't include ( . $ [ ] # / ). Please remove them from your username."
+                            self.showAlert(title, message)
+                            print("BAN!")
+                        }
+                        
+                      
                         if let text = self.usernameTextField.text, !text.isEmpty {
+                         
                             UserDefaults.standard.set(self.usernameTextField.text, forKey: "usernameSaved")
                             self.usernameTextField.text = ""
-                            let x = UserDefaults.standard.object(forKey: "usernameSaved")
+                            let x:String = UserDefaults.standard.object(forKey: "usernameSaved") as! String
                             print("Username: \(x) Data saved")
                             
                            
