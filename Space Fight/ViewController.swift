@@ -12,9 +12,9 @@ import Firebase
 import FirebaseUI
 import FirebaseCore
 import FirebaseDatabase
+import FirebaseInAppMessaging
 
-
-class ViewController: UIViewController {
+class ViewController : UIViewController {
 
   //Buttons label compose
     
@@ -31,6 +31,20 @@ class ViewController: UIViewController {
     
     
     @IBOutlet weak var usernameTextField: UITextField!
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     var isSignIn:Bool = true
     
@@ -64,6 +78,39 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
          ref = Database.database().reference()
+        //MARK: Reading xp data from database
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        UserDefaults.standard.set(uid, forKey: "UserID")
+        let ref = Database.database().reference(withPath: "High Score")
+        ref.observeSingleEvent(of: .value, with: { snapshot in
+            
+            if !snapshot.exists() { return }
+            
+            print(snapshot) // Its print all values including Snap (User)
+            
+            print(snapshot.value!)
+            
+            //let xp = snapshot.childSnapshot(forPath: "XP").value
+            
+            let xpdata:Int = snapshot.childSnapshot(forPath: uid).childSnapshot(forPath: "xp").value as! Int
+            print("XP: \(xpdata)")
+            UserDefaults.standard.set(xpdata, forKey: "UserXP")
+            
+            
+        })
+        
+        let userxp:Int = UserDefaults.standard.object(forKey: "UserXP") as? Int ?? 0
+        print("\(userxp) VIEWWW CONTROLLERR")
+        
+        
+        
+        
+        
+        
+        
+     
+    
+    
     }
     
    
@@ -88,10 +135,7 @@ class ViewController: UIViewController {
     @IBAction func signInButtonTapped(_ sender: UIButton) {
         var title = ""
         var message = ""
-        
-        
-      
-        
+ 
         if let email = emailTextField.text, let pass = passwordTextField.text {
             if isSignIn {
                 Auth.auth().signIn(withEmail: email, password: pass) { (user, error) in

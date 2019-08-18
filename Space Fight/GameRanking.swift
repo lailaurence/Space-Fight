@@ -41,11 +41,10 @@ class GameRankingScene:SKScene{
             
             //let xp = snapshot.childSnapshot(forPath: "XP").value
            
-            let xp = snapshot.childSnapshot(forPath: "XP").value
-            print("XP: \(xp!)")
+            let username = snapshot.childSnapshot(forPath: "username").value
+            print("Username: \(username!)")
             
-            
-        
+           
         
     })
        

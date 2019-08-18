@@ -12,6 +12,10 @@ import GameplayKit
 import UIKit
 import FirebaseDatabase
 import Firebase
+import FirebaseInAppMessaging
+import FirebaseUI
+
+
  var refScore = Database.database().reference().child("High Score")
 var hi = 1
 
@@ -90,6 +94,7 @@ class GameOverScene:SKScene {
             
             let x = UserDefaults.standard.object(forKey: "usernameSaved")
             guard let y = UIDevice.current.identifierForVendor?.uuidString else { return }
+            let empty = "unknown"
             let key = refScore.childByAutoId().key
             let device = UIDevice.modelName
             let z = UserDefaults.standard.object(forKey: "xpSaved")
@@ -99,20 +104,50 @@ class GameOverScene:SKScene {
             let highscoreStore = [
                 
                 "id" : key as Any,
-                "Username": x as Any,
-                "HighScore": highScoreNumber as Int,
-                "XP": z as! Int,
-                "Device": device,
-                "xpAdded": xpAdded as Any
+                "username": x as Any,
+                "highscore": highScoreNumber as Int,
+                "xp": z as! Int,
+                "device": device,
+                "xpadded": xpAdded as Any
                 
                 
                 
                 
                 ] as [String : Any]
             refScore.child(uid).setValue(highscoreStore)
+            
+            
+            
+            let ref = Database.database().reference(withPath: "High Score")
+            ref.observeSingleEvent(of: .value, with: { snapshot in
+                
+                if !snapshot.exists() { return }
+                
+                print(snapshot) // Its print all values including Snap (User)
+                
+                print(snapshot.value!)
+                
+                //let xp = snapshot.childSnapshot(forPath: "XP").value
+                
+                let username:String = snapshot.childSnapshot(forPath: uid).childSnapshot(forPath: "username").value as! String
+                UserDefaults.standard.set(username, forKey: "username")
+                
+                
+                
+            })
+           
+          
         }
         uploadData()
        
+        let username:String = UserDefaults.standard.object(forKey: "username") as? String ?? ""
+        print("Username: \(username)")
+        
+        
+        
+        
+        
+        
         let restartLabel = SKLabelNode(fontNamed: "Courier New Bold")
         restartLabel.name = "restartlabel"
         restartLabel.text = "Restart"
@@ -123,8 +158,7 @@ class GameOverScene:SKScene {
         self.addChild(restartLabel)
         print("Displayed restarted label")
         
-        
-        
+       
         let checkRankingLabel = SKLabelNode(fontNamed: "Courier New Bold")
         checkRankingLabel.name = "checkRanking"
         checkRankingLabel.text = "LabelChecking"
@@ -188,7 +222,30 @@ class GameOverScene:SKScene {
         let myTransition = SKTransition.fade(withDuration: 0.5)
         self.view!.presentScene(sceneToMoveTo, transition: myTransition)
         print ("Scene changed to Game Scene")
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        UserDefaults.standard.set(uid, forKey: "UserID")
+        let ref = Database.database().reference(withPath: "High Score")
+        ref.observeSingleEvent(of: .value, with: { snapshot in
+            
+            if !snapshot.exists() { return }
+            
+            print(snapshot) // Its print all values including Snap (User)
+            
+            print(snapshot.value!)
+            
+            //let xp = snapshot.childSnapshot(forPath: "XP").value
+            
+            let xpdata:Int = snapshot.childSnapshot(forPath: uid).childSnapshot(forPath: "xp").value as! Int
+            print("XP: \(xpdata)")
+            UserDefaults.standard.set(xpdata, forKey: "UserXP")
+            
+            
+        })
     }
+    
+    
+    
+    
 }
 
 
@@ -260,7 +317,7 @@ public extension UIDevice {
             }
             #endif
         }
-        
+
         return mapToDevice(identifier: identifier)
     }()
     

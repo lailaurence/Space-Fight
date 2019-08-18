@@ -8,6 +8,10 @@
 import Foundation
 import SpriteKit
 import GameplayKit
+import Firebase
+import FirebaseAuth
+import FirebaseDatabase
+import FirebaseInAppMessaging
 var gameScore = 0
 var originalxp = 0
 var addxp = 0
@@ -167,7 +171,28 @@ class DuringGameScene: SKScene,SKPhysicsContactDelegate {
         print("Game ", "Over")
         //Level System
         //TODO: When can read data, change this to retrieve data from database
-        let savedXP:Int = UserDefaults.standard.object(forKey: "xpSaved") as? Int ?? 0
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        UserDefaults.standard.set(uid, forKey: "UserID")
+        let ref = Database.database().reference(withPath: "High Score")
+        ref.observeSingleEvent(of: .value, with: { snapshot in
+            
+            if !snapshot.exists() { return }
+            
+            print(snapshot) // Its print all values including Snap (User)
+            
+            print(snapshot.value!)
+            
+            //let xp = snapshot.childSnapshot(forPath: "XP").value
+            
+            let xpdata:Int = snapshot.childSnapshot(forPath: uid).childSnapshot(forPath: "xp").value as! Int
+            print("XP: \(xpdata)")
+            UserDefaults.standard.set(xpdata, forKey: "UserXP")
+        
+        
+        })
+        
+        
+        let savedXP:Int = UserDefaults.standard.object(forKey: "UserXP") as? Int ?? 0
         
         
         
@@ -175,6 +200,7 @@ class DuringGameScene: SKScene,SKPhysicsContactDelegate {
             addxp += 2
             let currentxp = savedXP + addxp
             print("XP+2")
+            print(savedXP)
             UserDefaults.standard.set(currentxp, forKey: "xpSaved")
             UserDefaults.standard.set(addxp, forKey: "xpAdded")
             
@@ -182,6 +208,7 @@ class DuringGameScene: SKScene,SKPhysicsContactDelegate {
             addxp += 1
             print("XP+1")
             let currentxp = savedXP + addxp
+            print(savedXP)
             UserDefaults.standard.set(currentxp, forKey: "xpSaved")
              UserDefaults.standard.set(addxp, forKey: "xpAdded")
         } else if gameScore > 10 && gameScore < 15 {
@@ -219,7 +246,7 @@ class DuringGameScene: SKScene,SKPhysicsContactDelegate {
     //MARK:Scene change
     func changeScene() {
         
-        let sceneToMoveTo = GameRankingScene(size:self.size)
+        let sceneToMoveTo = GameOverScene(size:self.size)
         sceneToMoveTo.scaleMode = self.scaleMode
         let transition = SKTransition.fade(withDuration: 0.5)
         self.view!.presentScene(sceneToMoveTo, transition: transition )

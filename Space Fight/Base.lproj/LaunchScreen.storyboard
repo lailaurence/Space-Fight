@@ -17,13 +17,46 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchscreen" translatesAutoresizingMaskIntoConstraints="NO" id="IEK-CF-xld">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loading...." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uoh-rx-Gzv">
+                                <rect key="frame" x="169" y="680" width="88" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="lrh-vh-apR">
+                                <rect key="frame" x="198" y="721" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <constraints>
+                            <constraint firstItem="ocG-aE-sSk" firstAttribute="trailing" secondItem="IEK-CF-xld" secondAttribute="trailing" id="8EL-bN-T4k"/>
+                            <constraint firstAttribute="bottom" secondItem="IEK-CF-xld" secondAttribute="bottom" id="8gR-RR-IDb"/>
+                            <constraint firstItem="IEK-CF-xld" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Oyt-nC-zif"/>
+                            <constraint firstItem="IEK-CF-xld" firstAttribute="top" secondItem="ocG-aE-sSk" secondAttribute="top" id="QiJ-2v-GBc"/>
+                            <constraint firstItem="IEK-CF-xld" firstAttribute="top" secondItem="ocG-aE-sSk" secondAttribute="top" id="SWB-G3-ZRL"/>
+                            <constraint firstItem="IEK-CF-xld" firstAttribute="bottom" secondItem="ocG-aE-sSk" secondAttribute="bottom" id="XPR-z3-0nH"/>
+                            <constraint firstItem="ocG-aE-sSk" firstAttribute="bottom" secondItem="IEK-CF-xld" secondAttribute="bottom" id="ckr-sx-eT1"/>
+                            <constraint firstItem="IEK-CF-xld" firstAttribute="leading" secondItem="ocG-aE-sSk" secondAttribute="leading" id="t2F-C3-uhR"/>
+                            <constraint firstItem="IEK-CF-xld" firstAttribute="top" secondItem="ocG-aE-sSk" secondAttribute="top" id="t8L-qZ-nkO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ocG-aE-sSk"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="launchscreen" width="1506" height="2045"/>
+    </resources>
 </document>

@@ -11,6 +11,7 @@
 		0227133822D5E0C300450DFC /* CourierNewBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0227133722D5E0C300450DFC /* CourierNewBold.ttf */; };
 		024AEB3B22D3534E00E6090E /* explosion-01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 024AEB3A22D3534E00E6090E /* explosion-01.mp3 */; };
 		026F934822D228A600CFB5E6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 026F934722D228A600CFB5E6 /* GoogleService-Info.plist */; };
+		029B6E6A23058DF600F82537 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029B6E6923058DF600F82537 /* UIViewController.swift */; };
 		029DC08422D60DDD00C3C693 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029DC08322D60DDD00C3C693 /* GameOverScene.swift */; };
 		029DC08622D6332B00C3C693 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029DC08522D6332B00C3C693 /* ViewController.swift */; };
 		02D441FA22D1D555007AED7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D441F922D1D555007AED7F /* AppDelegate.swift */; };
@@ -53,6 +54,7 @@
 		0227133722D5E0C300450DFC /* CourierNewBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CourierNewBold.ttf; sourceTree = "<group>"; };
 		024AEB3A22D3534E00E6090E /* explosion-01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "explosion-01.mp3"; sourceTree = "<group>"; };
 		026F934722D228A600CFB5E6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		029B6E6923058DF600F82537 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		029DC08322D60DDD00C3C693 /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		029DC08522D6332B00C3C693 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		02D441F622D1D555007AED7F /* Space Fight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Space Fight.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,6 +154,7 @@
 				02D4420622D1D557007AED7F /* Assets.xcassets */,
 				0227133722D5E0C300450DFC /* CourierNewBold.ttf */,
 				02D4420822D1D557007AED7F /* LaunchScreen.storyboard */,
+				029B6E6923058DF600F82537 /* UIViewController.swift */,
 				02D4420B22D1D557007AED7F /* Info.plist */,
 			);
 			path = "Space Fight";
@@ -468,6 +471,7 @@
 				029DC08422D60DDD00C3C693 /* GameOverScene.swift in Sources */,
 				02D441FA22D1D555007AED7F /* AppDelegate.swift in Sources */,
 				022467ED22D6EC1A0097C683 /* DuringGameScene.swift in Sources */,
+				029B6E6A23058DF600F82537 /* UIViewController.swift in Sources */,
 				02E9AE4422FA7F7500E96D4C /* GameRanking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -644,6 +648,7 @@
 			baseConfigurationReference = 151FBB4D05C9E7FEC57E9DB4 /* Pods-Space Fight.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 88WKHKVDNQ;
@@ -655,6 +660,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "L-Laurence.Space-Fight";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -665,6 +671,7 @@
 			baseConfigurationReference = 9CAEE2B13381FDC64B9B3F33 /* Pods-Space Fight.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 88WKHKVDNQ;
 				INFOPLIST_FILE = "Space Fight/Info.plist";
@@ -675,6 +682,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "L-Laurence.Space-Fight";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
