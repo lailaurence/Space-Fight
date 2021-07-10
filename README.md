@@ -1,2 +1,2 @@
 # Space-Fight
-Playing around with Swift
+An iOS Game made with Swift
